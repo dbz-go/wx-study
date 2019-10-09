@@ -1,0 +1,97 @@
+<!--pages/share2/share.wxml-->
+<view style="padding:32rpx;">
+  <view class="userinfo-area" >
+      <view class="userinfo-left">
+        <view class="userinfo-avatar"><open-data type="userAvatarUrl"></open-data></view>
+        <open-data type="userNickName" class="userinfo-nickname"></open-data>
+      </view>
+      <view class="userinfo-right">
+        <!-- <button open-type="share">
+          <image src="/images/Icon/share.png" style="width:32rpx" mode="widthFix"></image>
+        </button> -->
+        <!-- <button catchtap="doShare">
+          <image src="/images/Icon/share.png" style="width:32rpx" mode="widthFix"></image>
+        </button> -->
+      </view>
+  </view>
+  <view style="font-size: 48rpx;color: #FFFFFF;line-height: 72rpx;">近期评估报告</view>
+  <view style="font-size: 24rpx;color: #FFFFFF;line-height: 72rpx;">shareId:{{shareId}}</view>
+  <view style="font-size: 24rpx;color: #FFFFFF;line-height: 72rpx;" v-if="{{creaT}}">creaT:{{creaT}}</view>
+  <view style="font-size: 24rpx;color: #FFFFFF;line-height: 72rpx;" v-if="{{_id}}">_id:{{_id}}</view>
+</view>
+<view style="background: #FFFFFF;border-width:0px;border-radius: 32rpx 32rpx 0 0;">
+  <!-- 其他变化 -->
+  <view style="padding: 13px 0">
+    <view style='padding-left: 5px;font-weight: bold;font-size: {{fontSize_title}}px;'>其他变化</view>
+    <view style="padding:10rpx 50rpx;line-height:28px">
+      <!-- 图例说明 -->
+      <view style="display:flex;flex-flow:row;justify-content:center;align-items:center;">
+        <image src="/images/Icon/report/yes.png" style="width:40rpx;" mode="widthFix"></image>
+        <label style="padding:0 20rpx 0 5rpx;">是</label>
+        <image src="/images/Icon/report/no.png" style="width:40rpx;" mode="widthFix"></image>
+        <label style="padding-left:5rpx">否</label>
+      </view>
+      <!-- 问题 -->
+      <view style="padding-top:30rpx;">
+        <block wx:for="{{programs}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+          <view style="padding-top:40rpx;">
+            <!-- 问题内容 -->
+            <view style="padding:0  0 40rpx 0;">{{item.text}}</view>
+            <!-- 横条 -->
+            <view style="width:650rpx;height:20rpx;background:#EEEEEE;border-radius: 10rpx;position: absolute;z-index: 1;margin-top:10rpx;"></view>
+            <!-- 每日图标 -->
+            <view style="width:650rpx;display:flex;flex-flow:row;justify-content:space-between;align-items:center;position: absolute;z-index: 2;">
+            <block wx:for="{{programsData[item.type]}}" wx:key="index1" wx:for-item="data">
+              <image wx:if="{{data == 1}}" src="/images/Icon/report/yes.png" style="width:40rpx;" mode="widthFix"></image>
+              <image wx:elif="{{data == 2}}" src="/images/Icon/report/no.png" style="width:40rpx;" mode="widthFix"></image>
+              <view wx:else="{{data == 0}}" style="width:40rpx;"></view>
+            </block>
+            </view>
+            <!-- 一周日期 -->
+            <view style="padding-top:30rpx;display:flex;flex-flow:row;justify-content:space-between;font-size:30rpx">
+            <block wx:for="{{date}}" wx:key="index1" wx:for-item="dateItem">
+              <view style="font-size:22rpx;font-weight:400;">{{dateItem}}</view>
+            </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服药情况 -->
+  <view style="padding: 13px 0">
+    <view style='padding-left: 5px;font-weight: bold;font-size: {{fontSize_title}}px;'>服药情况</view>
+    <view style="padding:10rpx 50rpx;line-height:28px">
+      <!-- 图例说明 -->
+      <view style="display:flex;flex-flow:row;justify-content:center;align-items:center;">
+        <image src="/images/Icon/report/yes1.png" style="width:40rpx;" mode="widthFix"></image>
+        <label style="padding:0 20rpx 0 5rpx;">是</label>
+        <image src="/images/Icon/report/no.png" style="width:40rpx;" mode="widthFix"></image>
+        <label style="padding-left:5rpx">否</label>
+      </view>
+      <!-- 问题 -->
+      <view style="padding-top:30rpx;">
+          <view style="padding-top:40rpx;">
+          <!-- 横条 -->
+          <view style="width:650rpx;height:20rpx;background:#EEEEEE;border-radius: 10rpx;position: absolute;z-index: 1;margin-top:10rpx;"></view>
+          <!-- 每日图标 -->
+          <view style="width:650rpx;display:flex;flex-flow:row;justify-content:space-between;align-items:center;position: absolute;z-index: 2;">
+            <block wx:for="{{programsData.medicines}}" wx:key="index1" wx:for-item="data">
+              <image wx:if="{{data == 1}}" src="/images/Icon/report/yes1.png" style="width:40rpx;" mode="widthFix"></image>
+              <image wx:elif="{{data == 2}}" src="/images/Icon/report/no.png" style="width:40rpx;" mode="widthFix"></image>
+              <view wx:else="{{data == 0}}" style="width:40rpx;"></view>
+            </block>
+          </view>
+          <!-- 一周日期 -->
+          <view style="padding-top:30rpx;display:flex;flex-flow:row;justify-content:space-between;font-size:30rpx">
+            <block wx:for="{{date}}" wx:key="index1" wx:for-item="dateItem">
+              <view style="font-size:22rpx;font-weight:400;">{{dateItem}}</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

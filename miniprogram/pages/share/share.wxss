@@ -1,0 +1,21 @@
+/* pages/share/share.wxss */
+page{
+  background:#3FA7FF;
+}
+/* 用户名、头像区域 */
+.userinfo-area{
+  padding-bottom:40rpx;display: flex;flex-flow: row;align-items: center;
+}
+.userinfo-left{
+  width: 50%;display: flex;flex-flow: row;justify-content: left;align-items: center;
+}
+.userinfo-avatar{  
+  width:72rpx; height: 72rpx; display:block; overflow:hidden; border-radius: 50%;
+}
+.userinfo-nickname{
+   background-color: #3FA7FF;
+  padding-left:10rpx; font-size: 36rpx; color: #ffffff; line-height: 68rpx;
+}
+.userinfo-right{
+  width:50%;text-align: right;font-size:24rpx;opacity: 0.6;color:#888888;
+}

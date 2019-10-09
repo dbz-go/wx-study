@@ -1,0 +1,31 @@
+<!--pages/cloudDatabase/cloudDatabase.wxml-->
+<view class="container">
+  <!-- 云函数querytodos查询数据库 -->
+  <view class="uploader">
+    <view bindtap="onQueryTodos" class="uploader-text">
+      <text>查询todos</text>
+    </view>
+  </view>
+
+  <!-- 云函数addtodos添加数据库 -->
+  <view class="uploader">
+    <view bindtap="onAddTodos" class="uploader-text">
+      <text>添加todos</text>
+    </view>
+  </view>
+
+  <!-- 云函数updateTodos更新数据库 -->
+  <view class="uploader">
+    <view bindtap="updateTodos" class="uploader-text">
+      <text>更新todos</text>
+    </view>
+  </view>
+
+  <!-- 云函数removeTodos删除数据库 -->
+  <view class="uploader">
+    <view bindtap="removeTodos" class="uploader-text">
+      <text>删除todos</text>
+    </view>
+  </view>
+</view>
+

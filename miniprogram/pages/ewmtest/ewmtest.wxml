@@ -1,0 +1,2 @@
+<!--pages/ewmtest/ewmtest.wxml-->
+<view bindtap="testFunction">二维码</view>
